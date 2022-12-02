@@ -5,51 +5,33 @@ on:
     branches: [ master ]
 
 jobs:
-  deploy:
+  sync: #同步到gitee仓库
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-
-      - name: Install and Build 🔧
-        run: |
-          npm install
-          npm run docs:build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.3
+      # 同步到Gitee
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@master
+        env:
+            # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
+            SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
         with:
-          BRANCH: gh-pages
-          FOLDER: src/.vuepress/dist
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-  # sync: #同步到gitee仓库
-  #   needs: deploy
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     # 同步到Gitee
-  #     - name: Sync to Gitee
-  #       uses: wearerequired/git-mirror-action@master
-  #       env:
-  #           # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
-  #           SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-  #       with:
-  #           # 注意替换为你的 GitHub 源仓库地址
-  #           source-repo: "git@github.com:TwoKe945/blog.git"
-  #           # 注意替换为你的 Gitee 目标仓库地址
-  #           destination-repo: "git@gitee.com:twoke/blog.git"
-  # reload-pages:
-  #   needs: sync
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Build Gitee Pages
-  #       uses: yanglbme/gitee-pages-action@master
-  #       with:
-  #           # 注意替换为你的 Gitee 用户名
-  #           gitee-username: twoke
-  #           # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
-  #           gitee-password: ${{ secrets.GITEE_PASSWORD }}
-  #           # 注意替换为你的 Gitee 仓库
-  #           gitee-repo: twoke/blog
-  #           branch: master
-  #           directory: src/.vuepress/dist
-  #           https: true
+            # 注意替换为你的 GitHub 源仓库地址
+            source-repo: "git@github.com:TwoKe945/blog.git"
+            # 注意替换为你的 Gitee 目标仓库地址
+            destination-repo: "git@gitee.com:twoke/blog.git"
+  reload-pages:
+    needs: sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Gitee Pages
+        uses: yanglbme/gitee-pages-action@master
+        with:
+            # 注意替换为你的 Gitee 用户名
+            gitee-username: twoke
+            # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
+            gitee-password: ${{ secrets.GITEE_PASSWORD }}
+            # 注意替换为你的 Gitee 仓库
+            gitee-repo: twoke/blog
+            branch: master
+            directory: src/.vuepress/dist
+            https: true

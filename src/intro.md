@@ -11,4 +11,25 @@ timeline: false
 
 # 介绍页
 
-将你的个人介绍和档案放置在此处。
+## 语言
+
+- Java
+- Typescript
+- Python
+
+## 框架
+
+- SpringBoot
+- MyBatisPlus
+- Vue2/3
+
+## 工具
+
+- Rollup
+- Esbuild
+- Webpack 5
+- Vite
+- Maven
+- Pnpm
+
+<a target="_blank" href="/blog/assets/简历.pdf" >个人简历</a>

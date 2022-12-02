@@ -28,3 +28,5 @@ jobs:
           # 注意替换为你的 Gitee 仓库
           gitee-repo: twoke/blog
           branch: master
+          directory: src/.vuepress/dist
+          https: true

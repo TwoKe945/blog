@@ -5,60 +5,51 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
-          fetch-depth: 0
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          # 选择要使用的 node 版本
-          node-version: "14"
-        # 缓存 node_modules
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          npm run build
 
-      # 如果缓存没有命中，安装依赖
-      - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --frozen-lockfile
-
-      # 运行构建脚本
-      - name: Build VuePress site
-        run: yarn docs:build
-      # 同步到Gitee
-      - name: Sync to Gitee
-        uses: wearerequired/git-mirror-action@master
-        env:
-            # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
-            SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
-            # 注意替换为你的 GitHub 源仓库地址
-            source-repo: "git@github.com:TwoKe945/blog.git"
-            # 注意替换为你的 Gitee 目标仓库地址
-            destination-repo: "git@gitee.com:twoke/blog.git"
-      # 部署到gitee
-      - name: Deploy Gitee Pages
-        uses: yanglbme/gitee-pages-action@master
-        with:
-            # 注意替换为你的 Gitee 用户名
-            gitee-username: twoke
-            # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
-            gitee-password: ${{ secrets.GITEE_PASSWORD }}
-            # 注意替换为你的 Gitee 仓库
-            gitee-repo: twoke/blog
-            branch: master
-            directory: src/.vuepress/dist
-            https: true
+          BRANCH: gh-pages
+          FOLDER: docs/.vuepress/dist
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  # sync: #同步到gitee仓库
+  #   needs: deploy
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # 同步到Gitee
+  #     - name: Sync to Gitee
+  #       uses: wearerequired/git-mirror-action@master
+  #       env:
+  #           # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
+  #           SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+  #       with:
+  #           # 注意替换为你的 GitHub 源仓库地址
+  #           source-repo: "git@github.com:TwoKe945/blog.git"
+  #           # 注意替换为你的 Gitee 目标仓库地址
+  #           destination-repo: "git@gitee.com:twoke/blog.git"
+  # reload-pages:
+  #   needs: sync
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Build Gitee Pages
+  #       uses: yanglbme/gitee-pages-action@master
+  #       with:
+  #           # 注意替换为你的 Gitee 用户名
+  #           gitee-username: twoke
+  #           # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
+  #           gitee-password: ${{ secrets.GITEE_PASSWORD }}
+  #           # 注意替换为你的 Gitee 仓库
+  #           gitee-repo: twoke/blog
+  #           branch: master
+  #           directory: src/.vuepress/dist
+  #           https: true

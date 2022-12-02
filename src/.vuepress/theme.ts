@@ -4,7 +4,7 @@ import { zhSidebar } from "./sidebar/index.js";
 
 export default hopeTheme({
   // 当前我那个站部署到的域名
-  hostname: "https://mister-hope.github.io",
+  hostname: "https://twoke.gitee.io/blog/",
 // 文章显示的默认作者
   author: {
     name: "TwoKe",

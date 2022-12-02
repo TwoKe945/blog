@@ -1,0 +1,15 @@
+export const pagesRoutes = [
+  ["v-184f4da6","/intro.html",{"t":"介绍页","i":"info","y":"p","u":false},["/intro","/intro.md"]],
+  ["v-8daa1a0e","/",{"t":"博客主页","i":"home","y":"h"},["/index.html","/README.md"]],
+  ["v-2e3eac9e","/slides.html",{"t":"幻灯片页","i":"slides","y":"s"},["/slides","/slides.md"]],
+  ["v-7208bd18","/codenotes/",{"t":"代码笔记","i":"code","y":"p","u":false},["/codenotes/index.html","/codenotes/README.md"]],
+  ["v-1486b3d8","/floatinglife/",{"t":"浮生杂记","i":"note","y":"p","u":false},["/floatinglife/index.html","/floatinglife/README.md"]],
+  ["v-3706649a","/404.html",{"t":"","y":"p"},["/404"]],
+  ["v-5bc93818","/category/",{"t":"分类","y":"p"},["/category/index.html"]],
+  ["v-744d024e","/tag/",{"t":"标签","y":"p"},["/tag/index.html"]],
+  ["v-e52c881c","/article/",{"t":"文章","y":"p"},["/article/index.html"]],
+  ["v-75ed4ea4","/encrypted/",{"t":"加密","y":"p"},["/encrypted/index.html"]],
+  ["v-d804e652","/slide/",{"t":"幻灯片","y":"p"},["/slide/index.html"]],
+  ["v-154dc4c4","/star/",{"t":"收藏","y":"p"},["/star/index.html"]],
+  ["v-01560935","/timeline/",{"t":"时间轴","y":"p"},["/timeline/index.html"]],
+]

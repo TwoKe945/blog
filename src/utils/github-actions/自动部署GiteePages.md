@@ -1,3 +1,23 @@
+---
+# 当前页面内容标题
+title: 自动部署Gitee Pages
+# 当前页面图标
+icon: github
+# 分类
+category:
+  - 工作流
+# 标签
+tag:
+  - 工作流
+sticky: false
+# 是否收藏在博客主题的文章列表中，当填入数字时，数字越大，排名越靠前。
+star: false
+# 是否将该文章添加至文章列表中
+article: true
+# 是否将该文章添加至时间线中
+timeline: true
+---
+
 # 自动部署Gitee Pages
 
 ## 博客部署

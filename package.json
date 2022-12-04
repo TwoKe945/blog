@@ -8,7 +8,7 @@
     "docs:build": "vuepress build src",
     "docs:clean-dev": "vuepress dev src --clean-cache",
     "docs:dev": "vuepress dev src",
-    "push": "gulp  --require @esbuild-kit/cjs-loader -f ./scripts/commit.ts"
+    "deploy": "gulp  --require @esbuild-kit/cjs-loader -f ./scripts/commit.ts"
   },
   "devDependencies": {
     "@babel/generator": "^7.20.5",

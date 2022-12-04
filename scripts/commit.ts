@@ -7,7 +7,7 @@ export default series(
   withTaskName('暂存编译博客', () => run('git add .')),
   withTaskName('添加提交记录', () => {
     getLastCommit((err, commit) => {
-      run(`git commit -m "${commit.body}"`)
+      run(`git commit -m "deploy:${commit.body}"`)
     })
   }),
   withTaskName('更新远程仓库', () => run(`git push`)),

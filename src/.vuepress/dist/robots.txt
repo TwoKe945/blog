@@ -1,5 +1,0 @@
-
-User-agent:*
-Disallow:
-
-Sitemap: https://twoke.gitee.io/blog/blog/sitemap.xml

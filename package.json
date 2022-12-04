@@ -8,13 +8,14 @@
     "docs:build": "vuepress build src",
     "docs:clean-dev": "vuepress dev src --clean-cache",
     "docs:dev": "vuepress dev src",
-    "push": "gulp -f ./scripts/commit.ts"
+    "push": "gulp  --require @esbuild-kit/cjs-loader -f ./scripts/commit.ts"
   },
   "devDependencies": {
     "@babel/generator": "^7.20.5",
     "@babel/parser": "^7.20.5",
     "@babel/traverse": "^7.20.5",
     "@babel/types": "^7.20.5",
+    "@esbuild-kit/cjs-loader": "^2.4.1",
     "@types/babel__generator": "^7.6.4",
     "@types/babel__traverse": "^7.18.3",
     "@types/glob": "^8.0.0",

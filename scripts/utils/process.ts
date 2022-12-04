@@ -26,6 +26,3 @@ export const run = async (command: string, cwd: string = rootPath) =>
     })
     process.on('exit', onProcessExit)
   })
-
-
-run('pnpm docs:build')

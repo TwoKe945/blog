@@ -14,9 +14,12 @@ function getMessage(body: string) {
 export default series(
   withTaskName('编译博客', () => run('pnpm docs:build')),
   withTaskName('暂存编译博客', () => run('git add .')),
-  withTaskName('添加提交记录', () => {
-    getLastCommit(async (err, commit) => {
-      await run(`git commit -m "deploy:${getMessage(commit.subject)}"`)
+  withTaskName('添加提交记录', async () => {
+    await new Promise((resolve) => {
+      getLastCommit(async (err, commit) => {
+        await run(`git commit -m "deploy:${getMessage(commit.subject)}"`)
+        resolve(null)
+      })
     })
   }),
   withTaskName('更新远程仓库', () => run(`git push`)),

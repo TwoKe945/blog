@@ -1,6 +1,6 @@
 import { it, expect, describe } from 'vitest'
 import { transfrom } from '../scripts/features/blog-dir'
-import parse from '@babel/parser'
+import {parse} from '@babel/parser'
 import traverse from '@babel/traverse'
 import generator from '@babel/generator'
 

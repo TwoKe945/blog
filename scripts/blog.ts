@@ -1,10 +1,10 @@
 import prompts from 'prompts'
-import { nodeNnv } from './utils'
+import { path } from './utils'
 import { join, resolve } from 'node:path'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { insertBlogDir } from './ast'
+import { insertBlogDir } from './features/blog-dir'
 
-const { __dirname, __filename } = nodeNnv(import.meta.url)
+const { __dirname, __filename } = path(import.meta.url)
 
 /**
  * 脚本功能：
@@ -50,12 +50,8 @@ timeline: false
 /**
  * 创建目录
  */
- async function mkdir() {
- 
-  // const files = readdirSync(resolve(__dirname, '../src'), { encoding: 'utf-8' }).filter((item:string) => !['.vuepress', 'intro.md', 'slides.md', 'README.md'].includes(item))
-  // console.log(files)
-
-   const response = await prompts([
+async function mkdir() {
+  const response = await prompts([
     {
       type: 'text',
       name: 'dirName',
@@ -89,7 +85,7 @@ timeline: false
     {
       type: 'select',
       name: 'value',
-      message: '选择创建文章或是目录',
+      message: '选择功能',
       choices: [
         { title: '文章', value: 'article', description: '博客文章' },
         { title: '目录', value: 'directory', description: '博客目录' },

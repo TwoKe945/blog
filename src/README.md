@@ -17,7 +17,7 @@ projects:
     desc: Docker镜像官方下载网站
     icon: module
   - name: Maven仓库
-    link: https://mvnrepository.com/
+    link: https://search.maven.org/
     desc: Jar包的搜索及下载地址
     icon: Apache
   - name: Npm

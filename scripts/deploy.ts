@@ -21,6 +21,5 @@ export default series(
         resolve(null)
       })
     })
-  }),
-  withTaskName('更新远程仓库', () => run(`git push`)),
+  })
 )

@@ -17,8 +17,11 @@ timeline: false
 
 ## 我是彭良苛
 - 📫 如何找到我: <a href="mailto:twoke945@163.com">twoke945@163.com</a>
-- 😄 [Blog](https://twoke.gitee.io/blog/)
+- 😄 [Blog](https://twoke.gitee.io/blog/)、[GitHub](https://github.com/TwoKe945)、[Gitee](https://gitee.com/twoke)
 - ⚡ 兴趣: 羽毛球 乒乓球
+
+
+<img src="https://ghchart.rshah.org/TwoKe945" alt="GitHub Chart" style="width:100%;"/>
 
 ## 语言
 ![Top%20Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=TwoKe945&layout=compact)

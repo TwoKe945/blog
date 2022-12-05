@@ -18,6 +18,7 @@ export default series(
     await new Promise((resolve) => {
       getLastCommit(async (err, commit) => {
         await run(`git commit -m "deploy:${getMessage(commit.subject)}"`)
+        await run(`git commit --amend -m "deploy:${getMessage(commit.subject)}"`)
         resolve(null)
       })
     })

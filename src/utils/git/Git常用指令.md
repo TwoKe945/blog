@@ -309,7 +309,7 @@ $ git stash pop
 # 生成一个可供发布的压缩包
 $ git archive
 
-# 设置分支图全局别名
+# 设置分支图全局别名 - git lg
 $ git config --global alias.lg "log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 ```
 

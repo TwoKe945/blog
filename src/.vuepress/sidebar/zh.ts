@@ -8,8 +8,9 @@ export const zhSidebar = sidebar({
       collapsible: true,
       prefix: "/utils/git/",
       children: [
+        "自动部署GiteePages.md",
         "Git常用指令.md",
-        "自动部署GiteePages.md"
+        "Merge与Rebase的区别.md"
       ]
     }
   ],

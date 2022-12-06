@@ -3,16 +3,13 @@ import { sidebar } from "vuepress-theme-hope";
 export const zhSidebar = sidebar({
   "/utils": [
     {
-      text: "Github Actions",
-      icon: "github",
+      text: "Git",
+      icon: "git",
       collapsible: true,
-      prefix: "/utils/github-actions/",
+      prefix: "/utils/git/",
       children: [
-        {
-          text: '自动部署GiteePages',
-          icon: 'gitee',
-          link: '自动部署GiteePages.md'
-        }
+        "Git常用指令.md",
+        "自动部署GiteePages.md"
       ]
     }
   ],

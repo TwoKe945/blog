@@ -1,8 +1,6 @@
 ---
 # 当前页面内容标题
 title: 自动部署Gitee Pages
-# 当前页面图标
-icon: github
 # 分类
 category:
   - 工作流

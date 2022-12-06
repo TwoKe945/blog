@@ -47,5 +47,16 @@
 			"# $1"
 			],
 		"description": "Log output to console"
+	},
+	"Print code snippets": {
+    "scope": "markdown",
+		"prefix": "```",
+		"body": [
+			"```$1",
+			"$2",
+			"```",
+			"",
+			],
+		"description": "Log output to console"
 	}
 }

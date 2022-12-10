@@ -4,9 +4,11 @@ title: 初步认识Canvas
 # 分类
 category:
   - 图形
+  - canvas
 # 标签
 tag:
- - 图形
+  - 图形
+  - canvas
 sticky: false
 # 是否收藏在博客主题的文章列表中，当填入数字时，数字越大，排名越靠前。
 star: false
@@ -24,9 +26,9 @@ Canvas API 主要聚焦于 2D 图形。而同样使用`<canvas>`元素的 WebGL 
 > 源自 [MDN_CANVAS](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API)
 
 
-::: normal-demo 绘制矩形
+::: normal-demo 绘制填充矩形
 ```html
-<canvas id="canvas" width="200" height="200"></canvas>
+<canvas id="canvas" width="100" height="100"></canvas>
 ```
 
 ```js

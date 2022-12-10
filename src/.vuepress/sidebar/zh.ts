@@ -19,7 +19,8 @@ export const zhSidebar = sidebar({
       collapsible: true,
       prefix: "/codenotes/canvas/",
       children: [
-        "初步认识Canvas.md"
+        "初步认识Canvas.md",
+        "绘制基本图形.md"
       ]
     }
   ],
